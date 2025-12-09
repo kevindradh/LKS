@@ -1,25 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\",
+  "WorkspaceRootPath": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\source\\repos\\belajarags\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\source\\repos\\belajarags\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\source\\repos\\belajarags\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\source\\repos\\belajarags\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\source\\repos\\belajarags\\models\\gsacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\models\\gsacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:models\\gsacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,32 +38,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-09T07:11:05.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginDTO.cs",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\LoginDTO.cs",
+              "RelativeToolTip": "DTOs\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T07:02:05.86Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "coursesController.cs",
-              "DocumentMoniker": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Controllers\\coursesController.cs",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Controllers\\coursesController.cs",
               "RelativeDocumentMoniker": "Controllers\\coursesController.cs",
-              "ToolTip": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Controllers\\coursesController.cs",
-              "RelativeToolTip": "Controllers\\coursesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Controllers\\coursesController.cs*",
+              "RelativeToolTip": "Controllers\\coursesController.cs*",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAD8AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-09T02:22:09.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "RegisterDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\DTOs\\RegisterDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\RegisterDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\RegisterDTO.cs",
-              "ToolTip": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\DTOs\\RegisterDTO.cs",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\RegisterDTO.cs",
               "RelativeToolTip": "DTOs\\RegisterDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -65,35 +94,34 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "usersController.cs",
-              "DocumentMoniker": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Controllers\\usersController.cs",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Controllers\\usersController.cs",
               "RelativeDocumentMoniker": "Controllers\\usersController.cs",
-              "ToolTip": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Controllers\\usersController.cs",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Controllers\\usersController.cs",
               "RelativeToolTip": "Controllers\\usersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAF0AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-09T01:44:20.108Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Program.cs",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T01:35:25.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T01:35:25.299Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "GsaContext.cs",
-              "DocumentMoniker": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Models\\GsaContext.cs",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Models\\GsaContext.cs",
               "RelativeDocumentMoniker": "Models\\GsaContext.cs",
-              "ToolTip": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\Models\\GsaContext.cs",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Models\\GsaContext.cs",
               "RelativeToolTip": "Models\\GsaContext.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

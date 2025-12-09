@@ -47,6 +47,43 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BelajarAGS.Controllers.coursesController",
+    "Method": "Purchase",
+    "RelativePath": "gsa-api/v1/courses/{courseId}/purchase",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "purchase",
+        "Type": "BelajarAGS.DTOs.PurchaseDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BelajarAGS.Controllers.usersController",
+    "Method": "Login",
+    "RelativePath": "gsa-api/v1/users/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "BelajarAGS.DTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BelajarAGS.Controllers.usersController",
     "Method": "Register",
     "RelativePath": "gsa-api/v1/users/register",

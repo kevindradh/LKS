@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\BelajarAGS.csproj": {}
+    "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\BelajarAGS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\BelajarAGS.csproj": {
+    "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\BelajarAGS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\BelajarAGS.csproj",
+        "projectUniqueName": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\BelajarAGS.csproj",
         "projectName": "BelajarAGS",
-        "projectPath": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\BelajarAGS.csproj",
+        "projectPath": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\BelajarAGS.csproj",
         "packagesPath": "C:\\Users\\Kevind\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kevind\\source\\repos\\BelajarAGS\\obj\\",
+        "outputPath": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.4, )"
@@ -68,6 +72,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.8.0, )"
             }
           },
           "imports": [

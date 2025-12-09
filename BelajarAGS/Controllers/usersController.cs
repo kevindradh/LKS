@@ -2,7 +2,10 @@
 using BelajarAGS.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -11,7 +14,7 @@ namespace BelajarAGS.Controllers
 {
     [Route("gsa-api/v1/[controller]")]
     [ApiController]
-    public class usersController(GsaContext _context) : ControllerBase
+    public class usersController(GsaContext _context, IConfiguration _config) : ControllerBase
     {
         [HttpPost("register")]
         public IActionResult Register(RegisterDTO user)
@@ -52,6 +55,57 @@ namespace BelajarAGS.Controllers
             _context.SaveChanges();
 
             return Ok(new { Message = "User registered successfully." });
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login(LoginDTO login)
+        {
+            var pwd = HashPassword(login.Password);
+            var check = _context.Users.FirstOrDefault(f => f.Email == login.Email && f.PasswordHash == pwd);
+
+            if (check == null)
+            {
+                return Unauthorized(new { Message = "Invalid email or password" });
+            }
+
+            var genJwt = GenerateJWT(check);
+
+            var dataLogin = new
+            {
+                Message = "Login successfull.",
+                Data = new
+                {
+                    UserId = check.Id,
+                    Username = check.Username,
+                    Role = check.Role,
+                    Token = genJwt
+                }
+            };
+
+            return Ok(dataLogin);
+        }
+
+        private string GenerateJWT(User usr)
+        {
+            var key = _config["Jwt:Key"];
+            var encode = Encoding.UTF8.GetBytes(key);
+
+            var securityKey = new SymmetricSecurityKey(encode);
+            var cSigninCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var cClaims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, usr.Id.ToString()),
+                new Claim(ClaimTypes.Role, usr.Role)
+            };
+
+            var jwtAuth = new JwtSecurityToken(
+                signingCredentials: cSigninCredentials,
+                claims: cClaims,
+                expires: DateTime.Now.AddDays(7)
+                );
+
+            return new JwtSecurityTokenHandler().WriteToken(jwtAuth);
         }
 
         private string HashPassword(string password)

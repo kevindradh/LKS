@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BelajarAGS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5329b6596056dccc8f0bd0177c514592c3aa56a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("BelajarAGS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BelajarAGS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
