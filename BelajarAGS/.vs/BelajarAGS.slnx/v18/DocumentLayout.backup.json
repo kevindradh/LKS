@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\dtos\\purchasedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:dtos\\purchasedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|c:\\users\\kevind\\documents\\lks\\belajarags\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{35AD8CD3-9995-EC77-E93A-802C2E0D6D20}|BelajarAGS.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -38,11 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "PurchaseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\PurchaseDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\PurchaseDTO.cs",
+              "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\PurchaseDTO.cs",
+              "RelativeToolTip": "DTOs\\PurchaseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T07:19:49.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -55,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\LoginDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\LoginDTO.cs",
@@ -73,14 +90,14 @@
               "RelativeDocumentMoniker": "Controllers\\coursesController.cs",
               "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Controllers\\coursesController.cs*",
               "RelativeToolTip": "Controllers\\coursesController.cs*",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAD8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAqwFcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-09T02:22:09.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "RegisterDTO.cs",
               "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\DTOs\\RegisterDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\RegisterDTO.cs",
@@ -98,14 +115,14 @@
               "RelativeDocumentMoniker": "Controllers\\usersController.cs",
               "ToolTip": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Controllers\\usersController.cs",
               "RelativeToolTip": "Controllers\\usersController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAF0AAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAGEAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-09T01:44:20.108Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -117,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GsaContext.cs",
               "DocumentMoniker": "C:\\Users\\Kevind\\Documents\\LKS\\BelajarAGS\\Models\\GsaContext.cs",
               "RelativeDocumentMoniker": "Models\\GsaContext.cs",

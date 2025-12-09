@@ -62,11 +62,14 @@ namespace BelajarAGS.Controllers
 
         [Authorize]
         [HttpPost("{courseId}/purchase")]
-        public IActionResult Purchase(int courseId,PurchaseDTO purchase)
+        public IActionResult Purchase(int courseId, PurchaseDTO purchase)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Course course = _context.Courses.FirstOrDefault(f => f.Id == courseId);
             var parsingUserId = int.TryParse(userId, out int convertedId);
+            var couponCode = _context.Coupons.FirstOrDefault(f => f.Code == purchase.CouponCode);
+            decimal discounApplied = 0;
+            decimal pricePaid = 0;
 
             if (!parsingUserId)
             {
@@ -78,12 +81,31 @@ namespace BelajarAGS.Controllers
                 return NotFound(new { Message = "Course not found!" });
             }
 
+            if (couponCode != null)
+            {
+                var quotaCheck = _context.Purchases.Count(f => f.CouponId == couponCode.Id);
+
+                if (quotaCheck >= couponCode.Quota || couponCode.ExpiryDate.Date < DateTime.Now.Date)
+                {
+                    return UnprocessableEntity(new { Message = "Validation error: coupon code has expired or quota exceeded." });
+                }
+
+                discounApplied = couponCode.DiscountPct;
+                var discountAmount = course.Price * discounApplied / 100;
+                pricePaid = course.Price - discountAmount;
+            }
+            else
+            {
+                pricePaid = course.Price;
+            }
+
             Purchase newPurchase = new Purchase
             {
                 UserId = convertedId,
                 CourseId = courseId,
-                PricePaid = course.Price,
+                PricePaid = pricePaid,
                 PaymentMethod = purchase.PaymentMethod,
+                CouponId = couponCode?.Id,
                 PurchasedAt = DateTime.Now,
             };
 
@@ -101,8 +123,8 @@ namespace BelajarAGS.Controllers
                     PurchaseDate = newPurchase.PurchasedAt,
                     newPurchase.PaymentMethod,
                     OriginalPrice = course.Price,
-                    DiscountApplied = 0,
-                    PaidAmount = newPurchase.PricePaid
+                    DiscountApplied = discounApplied,
+                    PaidAmount = pricePaid
                 }
             });
         }
