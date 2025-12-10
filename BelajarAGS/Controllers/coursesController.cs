@@ -91,7 +91,7 @@ namespace BelajarAGS.Controllers
                 }
 
                 discounApplied = couponCode.DiscountPct;
-                var discountAmount = course.Price * discounApplied / 100;
+                decimal discountAmount = course.Price * discounApplied / 100;
                 pricePaid = course.Price - discountAmount;
             }
             else

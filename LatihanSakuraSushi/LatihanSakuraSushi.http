@@ -1,0 +1,6 @@
+@LatihanSakuraSushi_HostAddress = http://localhost:5228
+
+GET {{LatihanSakuraSushi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
