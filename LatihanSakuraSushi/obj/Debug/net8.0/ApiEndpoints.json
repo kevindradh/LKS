@@ -58,7 +58,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LatihanSakuraSushi.Controllers.TransactionController",
+    "ContainingType": "LatihanSakuraSushi.Controllers.CartController",
     "Method": "AddItemToCart",
     "RelativePath": "api/Transaction/{uniqueCode}/Cart",
     "HttpMethod": "POST",
@@ -73,6 +73,22 @@
       {
         "Name": "cart",
         "Type": "LatihanSakuraSushi.DTOs.CartDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LatihanSakuraSushi.Controllers.CartController",
+    "Method": "ShowCart",
+    "RelativePath": "api/Transaction/{uniqueCode}/Cart",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uniqueCode",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
