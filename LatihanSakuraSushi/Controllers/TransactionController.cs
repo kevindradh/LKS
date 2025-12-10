@@ -10,6 +10,10 @@ namespace LatihanSakuraSushi.Controllers
     [ApiController]
     public class TransactionController(SakuraSushiContext _context) : ControllerBase
     {
+        private const string Letters = "ABCDEFHIJKLMNOPQRSTUVWXYZ";
+        private const string Digits = "0123456789";
+        private const string AlphaNum = Letters + Digits;
+
         [HttpPost]
         [Authorize(Roles = "Waiter,Cashier")]
         public IActionResult NewTransaction([FromForm] string tableNumber = "")
@@ -34,11 +38,11 @@ namespace LatihanSakuraSushi.Controllers
             }
 
             var newGuid = Guid.NewGuid();
-            var uniqueCode = newGuid.ToString()[..4].ToUpper();
+            var uniqueCode = RandomCodeGenerator();
 
             if (_context.Transactions.Any(f => f.UniqueCode == uniqueCode))
             {
-                uniqueCode = newGuid.ToString().Substring(1, 4).ToUpper();
+                uniqueCode = RandomCodeGenerator();
             }
 
             Transaction newTransaction = new Transaction
@@ -55,6 +59,23 @@ namespace LatihanSakuraSushi.Controllers
             _context.SaveChanges();
 
             return Ok(uniqueCode);
+        }
+
+        private string RandomCodeGenerator(int length = 4)
+        {
+            var random = new Random();
+            var result = new char[length];
+
+            result[0] = Letters[random.Next(Letters.Length)];
+            result[1] = Digits[random.Next(Digits.Length)];
+
+
+            for (int i = 2; i < length; i++)
+            {
+                result[i] = AlphaNum[random.Next(AlphaNum.Length)];
+            }
+
+            return new string(result);
         }
     }
 }
