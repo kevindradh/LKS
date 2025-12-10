@@ -40,5 +40,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LatihanSakuraSushi.Controllers.TransactionController",
+    "Method": "NewTransaction",
+    "RelativePath": "api/Transaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tableNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

@@ -68,6 +68,38 @@
           }
         }
       }
+    },
+    "/api/Transaction": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tableNumber": {
+                    "type": "string",
+                    "default": ""
+                  }
+                }
+              },
+              "encoding": {
+                "tableNumber": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -77,12 +109,12 @@
         "properties": {
           "username": {
             "type": "string",
-            "default": "darmell2",
+            "default": "fcerith0",
             "nullable": true
           },
           "password": {
             "type": "string",
-            "default": "Chef123!",
+            "default": "Cashier123!",
             "nullable": true
           }
         },

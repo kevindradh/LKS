@@ -4,9 +4,9 @@ namespace LatihanSakuraSushi.DTOs
 {
     public class SignInDTO
     {
-        [DefaultValue("darmell2")]
+        [DefaultValue("fcerith0")]
         public string Username { get; set; }
-        [DefaultValue("Chef123!")]
+        [DefaultValue("Cashier123!")]
         public string Password { get; set; }
     }
 }

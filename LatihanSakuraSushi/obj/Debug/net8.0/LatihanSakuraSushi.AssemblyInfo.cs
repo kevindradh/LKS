@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LatihanSakuraSushi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ad6620bdbb7864bb0eb539290d1d5720b1dc5d6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c176e27f780a187c13c8747ad7af06205f4cff3")]
 [assembly: System.Reflection.AssemblyProductAttribute("LatihanSakuraSushi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LatihanSakuraSushi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
