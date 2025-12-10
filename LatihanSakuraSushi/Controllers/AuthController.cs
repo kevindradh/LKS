@@ -75,7 +75,8 @@ namespace LatihanSakuraSushi.Controllers
                 new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var cClaims = new[]
             {
-                new Claim(ClaimTypes.Sid, user.Id.ToString())
+                new Claim(ClaimTypes.Sid, user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.Role),
             };
             var jwtAuth = new JwtSecurityToken(
                 signingCredentials: cSigninCredentials,

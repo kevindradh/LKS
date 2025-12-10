@@ -11,7 +11,7 @@ namespace LatihanSakuraSushi.Controllers
     public class TransactionController(SakuraSushiContext _context) : ControllerBase
     {
         [HttpPost]
-        //[Authorize(Roles = "Waiter,Cashier")]
+        [Authorize(Roles = "Waiter,Cashier")]
         public IActionResult NewTransaction([FromForm] string tableNumber = "")
         {
             var userId = User.FindFirstValue(ClaimTypes.Sid);
@@ -38,7 +38,7 @@ namespace LatihanSakuraSushi.Controllers
 
             if (_context.Transactions.Any(f => f.UniqueCode == uniqueCode))
             {
-                uniqueCode = newGuid.ToString()[..4].ToUpper();
+                uniqueCode = newGuid.ToString().Substring(1, 4).ToUpper();
             }
 
             Transaction newTransaction = new Transaction
