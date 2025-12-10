@@ -94,5 +94,38 @@ namespace LatihanSakuraSushi.Controllers
 
             return Ok(query);
         }
+
+        [HttpDelete("{uniqueCode}/Cart/{itemId}")]
+        public IActionResult DeleteItem(string uniqueCode, Guid itemId)
+        {
+            var transaction = _context.Transactions
+                .FirstOrDefault(f => f.UniqueCode == uniqueCode);
+
+            if (transaction == null)
+            {
+                return NotFound(new { Message = "Transaction not found!" });
+            }
+
+            var checkItem = _context.Items
+                .FirstOrDefault(f => f.Id == itemId);
+
+            if (checkItem == null)
+            {
+                return NotFound(new { Message = "Item not found!" });
+            }
+
+            var cartUser = _context.CartItems
+                .FirstOrDefault(f => f.TransactionId == transaction.Id && f.ItemId == checkItem.Id);
+
+            if (cartUser == null)
+            {
+                return NotFound(new { Message = "Item not found in user cart!" });
+            }
+
+            _context.CartItems.Remove(cartUser);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

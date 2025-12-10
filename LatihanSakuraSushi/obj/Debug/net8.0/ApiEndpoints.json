@@ -93,5 +93,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LatihanSakuraSushi.Controllers.CartController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/Transaction/{uniqueCode}/Cart/{itemId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uniqueCode",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "itemId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
