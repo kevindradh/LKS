@@ -9,6 +9,10 @@ android {
         version = release(36)
     }
 
+    viewBinding {
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "com.example.belajargawean"
         minSdk = 30
