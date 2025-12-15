@@ -98,13 +98,15 @@
         <com.google.android.material.button.MaterialButton
             style="?attr/materialIconButtonFilledStyle"
             android:layout_width="wrap_content"
+            android:id="@+id/btnShare"
             android:layout_height="wrap_content"
             app:icon="@drawable/outline_airplay_24" />
 
         <com.google.android.material.button.MaterialButton
-            style="?attr/materialIconButtonOutlinedStyle"
+            style="?attr/materialIconButtonFilledStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
             app:icon="@drawable/outline_ac_unit_24" />
 
     </LinearLayout>

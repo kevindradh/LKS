@@ -1,12 +1,16 @@
 package com.example.belajargawean
 
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.belajargawean.databinding.ActivityMain4Binding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity4 : AppCompatActivity() {
@@ -36,6 +40,11 @@ class MainActivity4 : AppCompatActivity() {
             }
 
         })
+
+        binding.btnShare.setOnClickListener {
+            val bsd = BlankFragment6()
+            bsd.show(supportFragmentManager, "")
+        }
     }
 
     private fun changeView(fragment: Fragment) {
