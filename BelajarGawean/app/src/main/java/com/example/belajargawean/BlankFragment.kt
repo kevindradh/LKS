@@ -1,5 +1,6 @@
 package com.example.belajargawean
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,7 +37,10 @@ class BlankFragment : Fragment() {
                 holder: GaweanViewHolder,
                 position: Int
             ) {
-
+                holder.itemView.setOnClickListener {
+                    val intent = Intent(this@BlankFragment.context, MainActivity4::class.java)
+                    startActivity(intent)
+                }
             }
 
             override fun getItemCount(): Int {
@@ -45,7 +49,7 @@ class BlankFragment : Fragment() {
         }
 
         binding.rvExplore.adapter = adapter
-        binding.rvExplore.layoutManager = LinearLayoutManager(parentFragment?.context)
+        binding.rvExplore.layoutManager = LinearLayoutManager(this@BlankFragment.context)
 
         return binding.root
     }
