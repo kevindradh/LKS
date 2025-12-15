@@ -14,5 +14,10 @@ class MainActivity3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMain3Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val exploreFragment = BlankFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(binding.fcvMain.id, exploreFragment)
+        transaction.commit()
     }
 }
