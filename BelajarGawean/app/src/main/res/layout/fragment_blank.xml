@@ -8,9 +8,7 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
-        app:title="Gawe-an"
-        app:titleTextColor="#FFFFFF"
-        android:background="#673AB7"
+        app:title="Explore"
         android:layout_height="wrap_content"/>
 
 </FrameLayout>
