@@ -18,11 +18,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val btnToRegister = findViewById<TextView>(R.id.tvToRegister)
         binding.tvToRegister.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
-//        val vbBtnToRegister =
+
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
