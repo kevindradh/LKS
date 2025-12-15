@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginVertical="12dp"
+    android:layout_marginHorizontal="4dp"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -43,16 +44,16 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_weight="7"
+                android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 android:layout_height="wrap_content"
                 android:text="Apply"/>
 
-            <Button
-                android:layout_weight="1"
-                style="?attr/materialIconButtonOutlinedStyle"
-                android:layout_width="0dp"
+            <com.google.android.material.button.MaterialButton
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 app:icon="@drawable/outline_ac_unit_24"/>
 
         </LinearLayout>
