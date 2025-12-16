@@ -1,5 +1,6 @@
 package com.example.belajargawean
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import com.example.belajargawean.databinding.CardGaweanBinding
 import com.example.belajargawean.databinding.FragmentBlankBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONArray
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
@@ -89,7 +91,7 @@ class BlankFragment : Fragment() {
                             holder: GaweanViewHolder,
                             position: Int
                         ) {
-                            var job = getData.getJSONObject(position)
+                            val job = getData.getJSONObject(position)
                             holder.binding.tvJobTitle.text = job.getString("name")
                             holder.binding.tvCompanyName.text = job.getJSONObject("company")
                                 .getString("name")
@@ -102,16 +104,25 @@ class BlankFragment : Fragment() {
                             }
 
                             holder.binding.btnSaveJob.setOnClickListener {
-                                for (i in 0 until Session.jobs.length()) {
-                                    val jobSecond = Session.jobs.getJSONObject(i)
-                                    if (jobSecond.getInt("id") == job.getInt("id")) {
-                                        Toast.makeText(context, "Unable to add job", Toast.LENGTH_SHORT).show()
-                                        return@setOnClickListener
-                                    }
-                                }
+                                val shared = context?.getSharedPreferences("joblist", Activity.MODE_PRIVATE)
+                                val editor = shared?.edit()
 
-                                Session.jobs.put(job)
-                                Log.d("Job Tersimpan", Session.jobs.toString())
+                                val dataJob = JSONArray(shared?.getString("joblist", "[]"))
+                                dataJob.put(job)
+
+                                editor?.putString("joblist", dataJob.toString())
+                                editor?.commit()
+
+//                                for (i in 0 until Session.jobs.length()) {
+//                                    val jobSecond = Session.jobs.getJSONObject(i)
+//                                    if (jobSecond.getInt("id") == job.getInt("id")) {
+//                                        Toast.makeText(context, "Unable to add job", Toast.LENGTH_SHORT).show()
+//                                        return@setOnClickListener
+//                                    }
+//                                }
+
+//                                Session.jobs.put(job)
+                                shared?.getString("joblist", "[]")?.let { msg -> Log.d("Job Tersimpan", msg) }
                             }
 
                             holder.itemView.setOnClickListener {
