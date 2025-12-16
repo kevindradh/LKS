@@ -72,11 +72,19 @@ class BlankFragment2 : Fragment() {
                 holder: RecyclerView.ViewHolder,
                 position: Int
             ) {
-
+                when (holder) {
+                    is MainVH -> {
+                        val savedJob = Session.jobs.getJSONObject(position)
+                        holder.binding.tvJobTitle.text = savedJob.getString("name")
+                    }
+                }
             }
 
             override fun getItemCount(): Int {
-                return 10
+                return when (binding.tlJob.selectedTabPosition) {
+                    0 -> Session.jobs.length()
+                    else -> throw IllegalArgumentException("Invalid tab position")
+                }
             }
 
         }

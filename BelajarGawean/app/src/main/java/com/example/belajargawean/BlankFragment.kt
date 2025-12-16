@@ -19,6 +19,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlin.math.log
 
 class BlankFragment : Fragment() {
     private lateinit var binding: FragmentBlankBinding
@@ -92,6 +93,26 @@ class BlankFragment : Fragment() {
                             holder.binding.tvJobTitle.text = job.getString("name")
                             holder.binding.tvCompanyName.text = job.getJSONObject("company")
                                 .getString("name")
+
+                            for (i in 0 until Session.jobs.length()) {
+                                val jobSecond = Session.jobs.getJSONObject(i)
+                                if (jobSecond.getInt("id") == job.getInt("id")) {
+                                    holder.binding.btnSaveJob.isChecked = true
+                                }
+                            }
+
+                            holder.binding.btnSaveJob.setOnClickListener {
+                                for (i in 0 until Session.jobs.length()) {
+                                    val jobSecond = Session.jobs.getJSONObject(i)
+                                    if (jobSecond.getInt("id") == job.getInt("id")) {
+                                        Toast.makeText(context, "Unable to add job", Toast.LENGTH_SHORT).show()
+                                        return@setOnClickListener
+                                    }
+                                }
+
+                                Session.jobs.put(job)
+                                Log.d("Job Tersimpan", Session.jobs.toString())
+                            }
 
                             holder.itemView.setOnClickListener {
                                 val intent =
