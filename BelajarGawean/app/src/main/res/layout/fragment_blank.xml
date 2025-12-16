@@ -46,12 +46,14 @@
         <com.google.android.material.chip.ChipGroup
             android:layout_marginTop="8dp"
             app:selectionRequired="true"
+            android:id="@+id/cgJobs"
             app:singleSelection="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.chip.Chip
                 android:checked="true"
+                android:id="@+id/chpAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
@@ -59,12 +61,14 @@
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
+                android:id="@+id/chpOnsite"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:text="Onsite"/>
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
+                android:id="@+id/chpRemote"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:text="Remote"/>

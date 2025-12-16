@@ -2,10 +2,12 @@ package com.example.belajargawean
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,16 +33,38 @@ class BlankFragment : Fragment() {
     ): View {
         binding = FragmentBlankBinding.inflate(inflater)
 
-        binding.etSearchJob.doAfterTextChanged { text -> loadJobs(inflater, text.toString()) }
+        var location = ""
+
+        binding.etSearchJob.doAfterTextChanged { text -> loadJobs(inflater, text.toString(), location) }
+
+        binding.cgJobs.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (checkedIds.isNotEmpty()) {
+                when (checkedIds[0]) {
+                    binding.chpAll.id -> {
+                        location = ""
+                        loadJobs(inflater, binding.etSearchJob.text.toString(), location)
+                    }
+                    binding.chpOnsite.id -> {
+                        location = "Onsite"
+                        loadJobs(inflater, binding.etSearchJob.text.toString(), location)
+                    }
+                    binding.chpRemote.id -> {
+                        location = "Remote"
+                        loadJobs(inflater, binding.etSearchJob.text.toString(), location)
+                    }
+                }
+            }
+        }
 
         loadJobs(inflater)
 
         return binding.root
     }
 
-    private fun loadJobs(inflater: LayoutInflater, search: String = "") {
+    private fun loadJobs(inflater: LayoutInflater, search: String = "", location: String = "") {
         lifecycleScope.launch(Dispatchers.IO) {
-            val url = "http://10.0.2.2:5000/api/jobs?search=${search}"
+            val url = "http://10.0.2.2:5000/api/jobs?search=${search}&location=${location}"
+            Log.d("CekURL", url)
             val request = URL(url).openConnection() as HttpURLConnection
             request.requestMethod = "GET"
 
