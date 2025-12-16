@@ -2,6 +2,7 @@ package com.example.belajargawean
 
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,6 +21,9 @@ class MainActivity4 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMain4Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val getId = intent.getIntExtra("id", 0)
+        Toast.makeText(this, getId.toString(), Toast.LENGTH_SHORT).show()
 
         changeView(BlankFragment4())
 

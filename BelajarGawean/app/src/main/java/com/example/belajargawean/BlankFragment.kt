@@ -127,7 +127,9 @@ class BlankFragment : Fragment() {
 
                             holder.itemView.setOnClickListener {
                                 val intent =
-                                    Intent(this@BlankFragment.context, MainActivity4::class.java)
+                                    Intent(this@BlankFragment.context, MainActivity4::class.java).apply {
+                                        putExtra("id", job.getInt("id"))
+                                    }
                                 startActivity(intent)
                             }
                         }
