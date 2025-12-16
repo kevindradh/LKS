@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,8 +31,16 @@ class BlankFragment : Fragment() {
     ): View {
         binding = FragmentBlankBinding.inflate(inflater)
 
+        binding.etSearchJob.doAfterTextChanged { text -> loadJobs(inflater, text.toString()) }
+
+        loadJobs(inflater)
+
+        return binding.root
+    }
+
+    private fun loadJobs(inflater: LayoutInflater, search: String = "") {
         lifecycleScope.launch(Dispatchers.IO) {
-            val url = "http://10.0.2.2:5000/api/jobs"
+            val url = "http://10.0.2.2:5000/api/jobs?search=${search}"
             val request = URL(url).openConnection() as HttpURLConnection
             request.requestMethod = "GET"
 
@@ -61,7 +70,8 @@ class BlankFragment : Fragment() {
                                 .getString("name")
 
                             holder.itemView.setOnClickListener {
-                                val intent = Intent(this@BlankFragment.context, MainActivity4::class.java)
+                                val intent =
+                                    Intent(this@BlankFragment.context, MainActivity4::class.java)
                                 startActivity(intent)
                             }
                         }
@@ -72,12 +82,11 @@ class BlankFragment : Fragment() {
                     }
 
                     binding.rvExplore.adapter = adapter
-                    binding.rvExplore.layoutManager = LinearLayoutManager(this@BlankFragment.context)
+                    binding.rvExplore.layoutManager =
+                        LinearLayoutManager(this@BlankFragment.context)
                 }
             }
         }
-
-        return binding.root
     }
 
     class GaweanViewHolder(val binding: CardGaweanBinding) : RecyclerView.ViewHolder(binding.root)
