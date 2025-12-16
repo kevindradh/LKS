@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvJobTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Job Title"
@@ -20,6 +21,7 @@
             android:textSize="20sp"/>
 
         <TextView
+            android:id="@+id/tvCompanyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PT. UBIG"
