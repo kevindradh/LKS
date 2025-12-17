@@ -1,5 +1,6 @@
 package com.example.belajarezemkofi
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.ViewGroup
@@ -83,6 +84,10 @@ class MainActivity : AppCompatActivity() {
                                     runOnUiThread {
                                         holder.bind.ivCoffeImage.setImageBitmap(bitmap)
                                     }
+                                }
+
+                                holder.itemView.setOnClickListener {
+                                    startActivity(Intent(this@MainActivity, MainActivity2::class.java))
                                 }
                             }
                         }
