@@ -9,6 +9,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:id="@+id/cgCategory">
+
+    </com.google.android.material.chip.ChipGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:paddingLeft="16dp"
         android:clipToPadding="false"

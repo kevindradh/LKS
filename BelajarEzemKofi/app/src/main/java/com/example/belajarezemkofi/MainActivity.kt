@@ -12,11 +12,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.belajarezemkofi.databinding.ActivityMainBinding
 import com.example.belajarezemkofi.databinding.CardCoffeeBinding
+import com.google.android.material.chip.Chip
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.net.HttpURLConnection
 import java.net.URL
+import java.text.NumberFormat
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,16 +31,30 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             val url = "http://192.168.100.88:5000/api/coffee"
+            val urlCategory = "http://192.168.100.88:5000/api/coffee-category"
             val conn = URL(url).openConnection() as HttpURLConnection
+            val connCategory = URL(urlCategory).openConnection() as HttpURLConnection
+
             conn.requestMethod = "GET"
+            connCategory.requestMethod = "GET"
 
             val resCode = conn.responseCode
+            val resCodeCategory = conn.responseCode
 
-            if (resCode == HttpURLConnection.HTTP_OK) {
+            if (resCode == HttpURLConnection.HTTP_OK && resCodeCategory == HttpURLConnection.HTTP_OK) {
                 val inputStream = conn.getInputStream().bufferedReader().readText()
+                val inputStreamCategory = connCategory.getInputStream().bufferedReader().readText()
+
                 val coffees = JSONArray(inputStream)
+                val categories = JSONArray(inputStreamCategory)
 
                 runOnUiThread {
+                    for (i in 0 until categories.length()) {
+                        val chip = Chip(this@MainActivity)
+                        chip.text = categories.getJSONObject(i).getString("name")
+                        binding.cgCategory.addView(chip)
+                    }
+
                     binding.rvCoffee.adapter = object : RecyclerView.Adapter<CoffeViewHolder>() {
                         override fun onCreateViewHolder(
                             parent: ViewGroup,
@@ -50,11 +67,14 @@ class MainActivity : AppCompatActivity() {
                             holder: CoffeViewHolder,
                             position: Int
                         ) {
+                            val numFormat = NumberFormat.getCurrencyInstance(Locale.US)
+
                             coffees.getJSONObject(position).let { coffee ->
                                 holder.bind.tvCoffeName.text = coffee.getString("name")
                                 holder.bind.tvCoffeeRating.text = coffee.getString("rating")
-                                holder.bind.tvPrice.text = "$${coffee.getString("price")}"
+                                holder.bind.tvPrice.text = numFormat.format(coffee.getDouble("price"))
 
+                                // Show images from API
                                 lifecycleScope.launch(Dispatchers.IO) {
                                     val urlHttp = "http://192.168.100.88:5000/images/${coffee.getString("imagePath")}"
                                     val imageUrl = URL(urlHttp).openStream()
