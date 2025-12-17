@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
+    android:layout_marginRight="16dp"
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
@@ -27,6 +28,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvCoffeName"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -35,15 +37,20 @@
                 android:text="Classic Americano"/>
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/tvCoffeeRating"
+                app:chipStrokeWidth="0dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="6.8"
-                app:chipBackgroundColor="#37765D"
+                android:textSize="16dp"
+                app:chipBackgroundColor="#41876B"
                 android:textColor="@color/white"
                 app:chipIconTint="@color/white"
-                app:chipIcon="@drawable/outline_bluetooth_24"/>
+                app:chipIconSize="16dp"
+                app:chipIcon="@drawable/star_solid_24"/>
 
             <TextView
+                android:id="@+id/tvPrice"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -57,6 +64,7 @@
 
 
     <ImageView
+        android:id="@+id/ivCoffeImage"
         android:layout_width="152dp"
         android:layout_height="152dp"
         android:src="@drawable/classic_americano"
