@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.belajarezemkofi.databinding.ActivityMainBinding
 import com.example.belajarezemkofi.databinding.CardCoffeeBinding
 import com.google.android.material.chip.Chip
+import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONArray
@@ -31,37 +32,71 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         lifecycleScope.launch(Dispatchers.IO) {
-            val url = "http://192.168.100.88:5000/api/coffee"
             val urlCategory = "http://192.168.100.88:5000/api/coffee-category"
-            val conn = URL(url).openConnection() as HttpURLConnection
             val connCategory = URL(urlCategory).openConnection() as HttpURLConnection
-
-            conn.requestMethod = "GET"
             connCategory.requestMethod = "GET"
+            val resCodeCategory = connCategory.responseCode
 
-            val resCode = conn.responseCode
-            val resCodeCategory = conn.responseCode
-
-            if (resCode == HttpURLConnection.HTTP_OK && resCodeCategory == HttpURLConnection.HTTP_OK) {
-                val inputStream = conn.getInputStream().bufferedReader().readText()
-                val inputStreamCategory = connCategory.getInputStream().bufferedReader().readText()
-
-                val coffees = JSONArray(inputStream)
-                val categories = JSONArray(inputStreamCategory)
-
+            if (resCodeCategory == HttpURLConnection.HTTP_OK) {
                 runOnUiThread {
+                    val inputStreamCategory = connCategory.getInputStream().bufferedReader().readText()
+                    val categories = JSONArray(inputStreamCategory)
+
                     for (i in 0 until categories.length()) {
-                        val chip = Chip(this@MainActivity)
-                        chip.text = categories.getJSONObject(i).getString("name")
-                        binding.cgCategory.addView(chip)
+                        val category = binding.tlCategory.newTab()
+                        category.text = categories.getJSONObject(i).getString("name")
+                        category.tag = categories.getJSONObject(i).getInt("id")
+                        binding.tlCategory.addTab(category)
                     }
 
+                    binding.tlCategory.addOnTabSelectedListener(object :
+                        TabLayout.OnTabSelectedListener {
+                        override fun onTabSelected(tab: TabLayout.Tab?) {
+                            if (tab?.tag != null) {
+                                val categoryId = tab.tag as Int
+                                getCoffee(categoryId)
+                            }
+                        }
+
+                        override fun onTabUnselected(p0: TabLayout.Tab?) {}
+
+                        override fun onTabReselected(p0: TabLayout.Tab?) {}
+
+                    })
+                }
+            }
+        }
+
+        getCoffee()
+    }
+
+    private fun getCoffee(categoryId: Int = 1) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val url = "http://192.168.100.88:5000/api/coffee?coffeeCategoryID=${categoryId}"
+            val conn = URL(url).openConnection() as HttpURLConnection
+
+            conn.requestMethod = "GET"
+
+            val resCode = conn.responseCode
+
+            if (resCode == HttpURLConnection.HTTP_OK) {
+                val inputStream = conn.getInputStream().bufferedReader().readText()
+
+                val coffees = JSONArray(inputStream)
+
+                runOnUiThread {
                     binding.rvCoffee.adapter = object : RecyclerView.Adapter<CoffeViewHolder>() {
                         override fun onCreateViewHolder(
                             parent: ViewGroup,
                             viewType: Int
                         ): CoffeViewHolder {
-                            return CoffeViewHolder(CardCoffeeBinding.inflate(layoutInflater, parent, false))
+                            return CoffeViewHolder(
+                                CardCoffeeBinding.inflate(
+                                    layoutInflater,
+                                    parent,
+                                    false
+                                )
+                            )
                         }
 
                         override fun onBindViewHolder(
@@ -73,11 +108,13 @@ class MainActivity : AppCompatActivity() {
                             coffees.getJSONObject(position).let { coffee ->
                                 holder.bind.tvCoffeName.text = coffee.getString("name")
                                 holder.bind.tvCoffeeRating.text = coffee.getString("rating")
-                                holder.bind.tvPrice.text = numFormat.format(coffee.getDouble("price"))
+                                holder.bind.tvPrice.text =
+                                    numFormat.format(coffee.getDouble("price"))
 
                                 // Show images from API
                                 lifecycleScope.launch(Dispatchers.IO) {
-                                    val urlHttp = "http://192.168.100.88:5000/images/${coffee.getString("imagePath")}"
+                                    val urlHttp =
+                                        "http://192.168.100.88:5000/images/${coffee.getString("imagePath")}"
                                     val imageUrl = URL(urlHttp).openStream()
                                     val bitmap = BitmapFactory.decodeStream(imageUrl)
 
@@ -87,7 +124,12 @@ class MainActivity : AppCompatActivity() {
                                 }
 
                                 holder.itemView.setOnClickListener {
-                                    startActivity(Intent(this@MainActivity, MainActivity2::class.java))
+                                    startActivity(
+                                        Intent(
+                                            this@MainActivity,
+                                            MainActivity2::class.java
+                                        )
+                                    )
                                 }
                             }
                         }
@@ -97,7 +139,11 @@ class MainActivity : AppCompatActivity() {
                         }
 
                     }
-                    binding.rvCoffee.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+                    binding.rvCoffee.layoutManager = LinearLayoutManager(
+                        this@MainActivity,
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                    )
                 }
             }
         }
