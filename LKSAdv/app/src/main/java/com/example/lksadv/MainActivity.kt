@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.lksadv.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
             val intent = result.data
             bind.tvNama.text = intent?.getStringExtra("nama")
             bind.tvTanggalLahir.text = intent?.getStringExtra("tanggalLahir")
+
+            val snackbar = Snackbar
+                .make(bind.main, "Data Berhasil Diubah", Snackbar.LENGTH_LONG)
+            snackbar.show()
         }
     }
 

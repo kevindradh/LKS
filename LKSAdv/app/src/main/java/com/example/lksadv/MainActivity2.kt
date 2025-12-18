@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.lksadv.databinding.ActivityMain2Binding
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.MaterialStyledDatePickerDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.sql.Date
 import java.text.SimpleDateFormat
 
@@ -40,14 +41,23 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         bind.btnSubmit.setOnClickListener {
-            val intent = Intent().apply {
-                putExtra("nama", bind.etNama.text.toString())
-                putExtra("tanggalLahir", bind.etTanggalLahir.text.toString())
+            val alert = MaterialAlertDialogBuilder(this)
+            alert.setTitle("Konfirmasi")
+            alert.setMessage("Apakah kamu yakin ingin menyimpan")
+            alert.setPositiveButton("Ya") { dialog, which ->
+                val intent = Intent().apply {
+                    putExtra("nama", bind.etNama.text.toString())
+                    putExtra("tanggalLahir", bind.etTanggalLahir.text.toString())
+                }
+
+                setResult(RESULT_OK, intent)
+
+                finish()
             }
-
-            setResult(RESULT_OK, intent)
-
-            finish()
+            alert.setNegativeButton("Tidak") { dialog, _ ->
+                dialog.dismiss()
+            }
+            alert.show()
         }
     }
 }
