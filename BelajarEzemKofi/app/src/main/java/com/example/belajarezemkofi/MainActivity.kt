@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONArray
+import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 import java.text.NumberFormat
@@ -31,16 +32,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val shared = getSharedPreferences("token", MODE_PRIVATE)
+
         lifecycleScope.launch(Dispatchers.IO) {
             val urlCategory = "http://192.168.100.88:5000/api/coffee-category"
-            val connCategory = URL(urlCategory).openConnection() as HttpURLConnection
-            connCategory.requestMethod = "GET"
-            val resCodeCategory = connCategory.responseCode
+            val urlMe = "http://192.168.100.88:5000/api/me"
 
-            if (resCodeCategory == HttpURLConnection.HTTP_OK) {
+            val connCategory = URL(urlCategory).openConnection() as HttpURLConnection
+            val connMe = URL(urlMe).openConnection() as HttpURLConnection
+
+            connCategory.requestMethod = "GET"
+            connMe.requestMethod = "GET"
+            connMe.setRequestProperty("Authorization", "Bearer ${shared.getString("token", "")}")
+
+            val resCodeCategory = connCategory.responseCode
+            val resCodeMe = connMe.responseCode
+
+            if (resCodeCategory == HttpURLConnection.HTTP_OK && resCodeMe == HttpURLConnection.HTTP_OK) {
                 runOnUiThread {
                     val inputStreamCategory = connCategory.getInputStream().bufferedReader().readText()
                     val categories = JSONArray(inputStreamCategory)
+                    val me = JSONObject(connMe.getInputStream().bufferedReader().readText())
 
                     for (i in 0 until categories.length()) {
                         val category = binding.tlCategory.newTab()
@@ -48,6 +60,8 @@ class MainActivity : AppCompatActivity() {
                         category.tag = categories.getJSONObject(i).getInt("id")
                         binding.tlCategory.addTab(category)
                     }
+
+                    binding.tvUsername.text = me.getString("fullName")
 
                     binding.tlCategory.addOnTabSelectedListener(object :
                         TabLayout.OnTabSelectedListener {

@@ -9,6 +9,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="20dp"
+        android:id="@+id/tvUsername"
+        android:textStyle="bold"/>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tlCategory"
         app:tabMode="scrollable"
