@@ -1,0 +1,47 @@
+package com.example.lksadv
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.lksadv.databinding.ActivityMain2Binding
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.MaterialStyledDatePickerDialog
+import java.sql.Date
+import java.text.SimpleDateFormat
+
+class MainActivity2 : AppCompatActivity() {
+    private lateinit var bind: ActivityMain2Binding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        bind = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(bind.root)
+
+        bind.etTanggalLahir.setOnClickListener {
+            val dtp = MaterialDatePicker.Builder.datePicker()
+            dtp.setTitleText("Tanggal Lahir")
+            val builderDate = dtp.build()
+            builderDate.addOnPositiveButtonClickListener { lng ->
+                val date = Date(lng)
+                val formatter = SimpleDateFormat("dd-MM-yyyy")
+                bind.etTanggalLahir.setText(formatter.format(date))
+            }
+            builderDate.show(supportFragmentManager, null)
+        }
+
+        bind.btnSubmit.setOnClickListener {
+            val intent = Intent().apply {
+                putExtra("nama", bind.etNama.text.toString())
+                putExtra("tanggalLahir", bind.etTanggalLahir.text.toString())
+            }
+
+            setResult(RESULT_OK, intent)
+
+            finish()
+        }
+    }
+}
