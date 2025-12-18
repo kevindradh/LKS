@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:gravity="center"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:textSize="32dp"
-        android:id="@+id/tvNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nama Kamu"/>
-
-    <TextView
-        android:textSize="32dp"
-        android:id="@+id/tvTanggalLahir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tanggal Lahir Kamu"/>
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ubah Profil"
-        android:id="@+id/btnUbahNama"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="LKS Advance"
+            android:id="@+id/tlHome"
+            app:titleTextColor="@color/white"
+            android:background="?attr/colorPrimary"/>
+
+        <TextView
+            android:textSize="32dp"
+            android:id="@+id/tvNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Kamu"/>
+
+        <TextView
+            android:textSize="32dp"
+            android:id="@+id/tvTanggalLahir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Lahir Kamu"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubah Profil"
+            android:id="@+id/btnUbahNama"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nvHome"
+        app:menu="@menu/menu_custom"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

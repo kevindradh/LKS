@@ -34,6 +34,21 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:hint="Hobi"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:id="@+id/atvHobi"
+            android:inputType="none"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"

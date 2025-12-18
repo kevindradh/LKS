@@ -2,6 +2,7 @@ package com.example.lksadv
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,11 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        val hobi = listOf("Bersepeda", "Bermain", "Belajar")
+
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, hobi)
+        bind.atvHobi.setAdapter(adapter)
 
         bind.etTanggalLahir.setOnClickListener {
             val dtp = MaterialDatePicker.Builder.datePicker()
